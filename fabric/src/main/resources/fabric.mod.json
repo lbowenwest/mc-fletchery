@@ -20,6 +20,9 @@
     ],
     "main": [
       "io.github.lbowenwest.fletchery.fabric.FletcheryFabric"
+    ],
+    "jei_mod_plugin": [
+      "io.github.lbowenwest.fletchery.integration.jei.FletcheryJEIPlugin"
     ]
   },
   "mixins": [

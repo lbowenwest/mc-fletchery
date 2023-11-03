@@ -32,6 +32,9 @@ dependencies {
     // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
 
+//    compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
+//    runtimeOnly "mezz.jei:jei-${minecraft_version}-forge:${jei_version}"
+
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 }
