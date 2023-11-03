@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "io.github.lbowenwest.fletchery.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "FletchingTableBlockMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
