@@ -16,7 +16,7 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "io.github.lbowenwest.fletchery.fabric.client.FletcheryFabricClient"
+      "io.github.lbowenwest.fletchery.fabric.client.FletcheryClientFabric"
     ],
     "main": [
       "io.github.lbowenwest.fletchery.fabric.FletcheryFabric"
