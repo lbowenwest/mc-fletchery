@@ -1,0 +1,18 @@
+{
+  "type": "fletchery:fletching",
+  "ingredients": [
+    {
+      "item": "minecraft:glowstone_dust"
+    },
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "minecraft:feather"
+    }
+  ],
+  "result": {
+    "item": "minecraft:spectral_arrow",
+    "count": 6
+  }
+}
