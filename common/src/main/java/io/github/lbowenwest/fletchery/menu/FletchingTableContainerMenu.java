@@ -11,7 +11,6 @@ public class FletchingTableContainerMenu extends AbstractContainerMenu {
     private final CraftingContainer craftSlots;
     private final ResultContainer resultSlots;
     private final ContainerLevelAccess access;
-    private final Player player;
 
     public FletchingTableContainerMenu(int i, Inventory inventory) {
         this(i, inventory, ContainerLevelAccess.NULL);
@@ -22,13 +21,38 @@ public class FletchingTableContainerMenu extends AbstractContainerMenu {
         this.craftSlots = new TransientCraftingContainer(this, 3, 1);
         this.resultSlots = new ResultContainer();
         this.access = containerLevelAccess;
-        this.player = inventory.player;
 
+        buildCraftingContainer(inventory);
+        buildPlayerContainer(inventory);
+
+    }
+
+    private void buildCraftingContainer(Inventory inventory) {
+        int i;
+        for (i = 0; i < 3; ++i) {
+            this.addSlot(new Slot(this.craftSlots, i, 48, 17 + i * 18));
+        }
+        this.addSlot(new ResultSlot(inventory.player, this.craftSlots, this.resultSlots, 0, 124, 35));
+
+    }
+
+    private void buildPlayerContainer(Inventory inventory) {
+        int i;
+        for (i = 0; i < 3; ++i) {
+            for (int j = 0; j < 9; ++j) {
+                this.addSlot(new Slot(inventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+            }
+        }
+        for (i = 0; i < 9; ++i) {
+            this.addSlot(new Slot(inventory, i, 8 + i * 18, 142));
+        }
     }
 
     @Override
     public ItemStack quickMoveStack(Player player, int i) {
-        return null;
+        // TODO
+        ItemStack itemStack = ItemStack.EMPTY;
+        return itemStack;
     }
 
     @Override
