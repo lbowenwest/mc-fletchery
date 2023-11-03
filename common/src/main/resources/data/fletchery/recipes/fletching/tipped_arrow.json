@@ -2,7 +2,7 @@
   "type": "fletchery:fletching",
   "ingredients": [
     {
-      "item": "minecraft:flint"
+      "item": "minecraft:lingering_potion"
     },
     {
       "item": "minecraft:stick"
@@ -12,7 +12,7 @@
     }
   ],
   "result": {
-    "item": "minecraft:arrow",
+    "item": "minecraft:tipped_arrow",
     "count": 8
   }
 }

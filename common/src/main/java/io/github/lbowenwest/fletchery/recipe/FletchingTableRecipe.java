@@ -11,6 +11,9 @@ import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 
@@ -28,6 +31,7 @@ public class FletchingTableRecipe implements Recipe<Container> {
 
     @Override
     public boolean matches(Container container, Level level) {
+        // TODO currently allows ingredients in any order which isn't great
         StackedContents recipeMatcher = new StackedContents();
         int matchingStacks = 0;
 
@@ -43,7 +47,25 @@ public class FletchingTableRecipe implements Recipe<Container> {
 
     @Override
     public ItemStack assemble(Container container, RegistryAccess registryAccess) {
-        return this.getResultItem(registryAccess).copy();
+        ItemStack result = this.getResultItem(registryAccess).copy();
+        if (result.is(Items.TIPPED_ARROW)) {
+            ItemStack inputPotion = getInputPotionStack(container);
+            if (!inputPotion.isEmpty()) {
+                PotionUtils.setPotion(result, PotionUtils.getPotion(inputPotion));
+                PotionUtils.setCustomEffects(result, PotionUtils.getCustomEffects(inputPotion));
+            }
+        }
+        return result;
+    }
+
+    private ItemStack getInputPotionStack(Container container) {
+        for (int i = 0; i < container.getContainerSize(); ++i) {
+            ItemStack itemStack = container.getItem(i);
+            if (PotionUtils.getPotion(itemStack) != Potions.EMPTY) {
+                return itemStack;
+            }
+        }
+        return ItemStack.EMPTY;
     }
 
     @Override
