@@ -20,6 +20,13 @@ public class FletchingTableScreen extends AbstractContainerScreen<FletchingTable
     }
 
     @Override
+    public void render(GuiGraphics guiGraphics, int i, int j, float f) {
+        this.renderBackground(guiGraphics);
+        super.render(guiGraphics, i, j, f);
+        this.renderTooltip(guiGraphics, i, j);
+    }
+
+    @Override
     protected void renderBg(GuiGraphics guiGraphics, float f, int i, int j) {
         int k = this.leftPos;
         int l = (this.height - this.imageHeight) / 2;
