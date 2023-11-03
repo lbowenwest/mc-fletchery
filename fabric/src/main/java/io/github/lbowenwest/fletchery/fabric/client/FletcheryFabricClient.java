@@ -1,4 +1,4 @@
-package io.github.lbowenwest.fletchery.fabric;
+package io.github.lbowenwest.fletchery.fabric.client;
 
 import io.github.lbowenwest.fletchery.client.FletcheryClient;
 import net.fabricmc.api.ClientModInitializer;
