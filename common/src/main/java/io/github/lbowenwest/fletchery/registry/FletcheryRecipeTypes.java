@@ -25,6 +25,7 @@ public class FletcheryRecipeTypes {
     private static <T extends Recipe<?>> RegistrySupplier<RecipeSerializer<T>> create(String name, Supplier<RecipeSerializer<T>> serializer) {
         return RECIPE_SERIALIZERS.register(new FletcheryIdentifier(name), serializer);
     }
+
     private static <T extends Recipe<?>> RegistrySupplier<RecipeType<T>> create(String name) {
         Supplier<RecipeType<T>> type = () -> new RecipeType<>() {
             @Override
@@ -35,5 +36,6 @@ public class FletcheryRecipeTypes {
         return RECIPE_TYPES.register(new FletcheryIdentifier(name), type);
     }
 
-    public static void init() {}
+    public static void init() {
+    }
 }

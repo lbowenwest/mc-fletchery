@@ -16,7 +16,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.FletchingTableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -37,7 +36,6 @@ public class FletchingTableBlockMixin {
                     return Component.translatable("container.fletchery.fletching_table_menu");
                 }
 
-                @Nullable
                 @Override
                 public AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
                     return new FletchingTableContainerMenu(i, inventory, ContainerLevelAccess.create(level, blockPos));

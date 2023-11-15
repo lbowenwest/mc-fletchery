@@ -4,6 +4,7 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.Registrar;
 import dev.architectury.registry.registries.RegistrySupplier;
 import io.github.lbowenwest.fletchery.client.gui.handler.FletchingTableContainerMenu;
+import io.github.lbowenwest.fletchery.registry.FletcheryObjects;
 import io.github.lbowenwest.fletchery.registry.FletcheryRecipeTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -21,9 +22,12 @@ public class Fletchery {
             () -> new MenuType<>(FletchingTableContainerMenu::new, FeatureFlags.VANILLA_SET)
     );
 
-//    public static final RegistrySupplier<RecipeType<FletchingTableRecipe>> FLETCHING_TABLE_RECIPE_TYPE =
+    public static final ResourceLocation res(String name) {
+        return new ResourceLocation(MOD_ID, name);
+    }
 
     public static void init() {
+        FletcheryObjects.init();
         FletcheryRecipeTypes.init();
 //        System.out.println(FletcheryExpectPlatform.getConfigDirectory().toAbsolutePath().normalize().toString());
     }
